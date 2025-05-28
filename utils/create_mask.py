@@ -6,7 +6,7 @@ from PIL import ImageColor
 import cv2
 import numpy as np
 import random
-import pattern_rnd as rnd
+from utils.pattern_rnd import get_random_texture_paths as rnd
 
 COLOR = [
     "#fc1c1a",
@@ -44,7 +44,7 @@ def color_the_mask(mask_image, color, intensity):
 
 
 def texture_the_mask(mask_image, texture_path, intensity):
-    texture_path = rnd.get_random_texture_paths()
+    texture_path = rnd()
     assert 0 <= intensity <= 1, "intensity should be between 0 and 1"
     orig_shape = mask_image.shape
     bit_mask = mask_image[:, :, 3]
