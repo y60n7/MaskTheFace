@@ -316,13 +316,13 @@ def mask_face(image, face_location, six_points, angle, args, type="surgical"):
     img = cv2.imread(cfg.template, cv2.IMREAD_UNCHANGED)
 
     # Process the mask if necessary
-    # if args.pattern:
+    if args.pattern == "random":
     #    # Apply pattern to mask
-    img = texture_the_mask(img, args.pattern, args.pattern_weight)
+        img = texture_the_mask(img, args.pattern, args.pattern_weight)
 
-    #if args.color:
+    if args.color == "random":
         # Apply color to mask
-    img = color_the_mask(img, args.color, args.color_weight)
+        img = color_the_mask(img, args.color, args.color_weight)
 
     mask_line = np.float32(
         [cfg.mask_a, cfg.mask_b, cfg.mask_c, cfg.mask_f, cfg.mask_e, cfg.mask_d]
