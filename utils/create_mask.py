@@ -5,6 +5,7 @@
 from PIL import ImageColor
 import cv2
 import numpy as np
+import random
 import pattern_rnd as rnd
 
 COLOR = [
@@ -25,6 +26,7 @@ COLOR = [
 
 
 def color_the_mask(mask_image, color, intensity):
+    color = random.choice(COLOR)
     assert 0 <= intensity <= 1, "intensity should be between 0 and 1"
     RGB_color = ImageColor.getcolor(color, "RGB")
     RGB_color = (RGB_color[2], RGB_color[1], RGB_color[0])
